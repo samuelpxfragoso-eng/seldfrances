@@ -300,9 +300,9 @@ const Header = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#1C3550] text-white">
+    <section id="home" className="relative pt-40 pb-16 lg:pt-48 lg:pb-32 overflow-hidden bg-[#1C3550] text-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Left Text Content */}
           <div className="max-w-xl z-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-sm font-bold mb-6 uppercase tracking-wider">
@@ -310,7 +310,7 @@ const Hero = () => {
               Referência em Cuidado Premium
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-brand leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-4xl lg:text-7xl font-brand leading-[1.1] mb-6 tracking-tight">
               O cheirinho de limpeza que sua <span className="text-[#D92B2B]">rotina merece</span>
             </h1>
             
@@ -330,7 +330,7 @@ const Hero = () => {
 
           {/* Right Media Content */}
           <div className="relative z-20">
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-square md:aspect-[4/3] lg:aspect-square bg-slate-100">
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-video md:aspect-[4/3] lg:aspect-square bg-slate-100">
               <VideoPlayer
                 src="https://res.cloudinary.com/ddfacd0wf/video/upload/v1781658510/untitled_Grok_Imagine_Video_2026-06-17_01-01-40_mpd32c.mp4"
                 className="absolute inset-0 w-full h-full object-cover"
@@ -449,23 +449,8 @@ const Structure = () => {
         <h2 className="text-4xl md:text-5xl font-heading text-white">Nossa Estrutura</h2>
       </div>
       <div className="relative mb-20">
-        <AutoScrollContainer>
-          {[...STRUCTURE_IMAGES, ...STRUCTURE_IMAGES].map((img, idx) => (
-            <div key={idx} className="w-[320px] md:w-[420px] lg:w-[500px] shrink-0 aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl bg-slate-100 mr-8">
-              <img src={img} alt={`Estrutura ${idx}`} className="w-full h-full object-cover pointer-events-none" />
-            </div>
-          ))}
-        </AutoScrollContainer>
       </div>
 
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white bg-slate-100">
-          <VideoPlayer
-            src="https://res.cloudinary.com/dbuiqh0ee/video/upload/v1780171342/SnapInsta.to_AQOWmFlbfp7qMWRdssRlVHD39pOrk6ILVwNA-UnAPo-IROkhVUAjNki3UwTNPqTStuFT5z3WeKeasoVX6qxtUklz59JANb_xFSLffGI_w5e5w8.mp4"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
     </section>
   );
 };
@@ -577,14 +562,7 @@ const plans = [
 const ScheduleCollection = () => {
   return (
     <section className="relative py-28 overflow-hidden flex items-center justify-center">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://res.cloudinary.com/dbuiqh0ee/image/upload/v1780171332/Captura_de_tela_2026-02-08_102428_rf64xc.png"
-          className="w-full h-full object-cover"
-          alt="Background"
-        />
-        <div className="absolute inset-0 bg-secondary/40 backdrop-blur-[2px] animate-flash-glow pointer-events-none"></div>
-      </div>
+      <div className="absolute inset-0 z-0 bg-slate-100"></div>
 
       <div className="container mx-auto px-4 relative z-10 flex justify-center">
         <div className="bg-white p-8 md:p-12 rounded-2xl shadow-2xl border border-slate-100 max-w-lg w-full text-left transition-all hover:shadow-3xl">
@@ -609,8 +587,8 @@ const AboutUs = () => {
   return (
     <section id="about" className="bg-[#f8fafc]">
       <div className="py-24 px-4 text-center">
-        <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-6">Uma História de Cuidado e Frescor</h2>
-        <p className="text-slate-500 text-xl">Descubra os pilares que tornam a Seld Lavanderia Express única.</p>
+        <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-6">Seld: Compromisso com Economia e Qualidade</h2>
+        <p className="text-slate-500 text-xl">A Seld nasceu para transformar sua rotina, trazendo tecnologia e eficiência para o cuidado com suas roupas na Praia do Francês.</p>
       </div>
 
       <div className="py-24 px-4 text-center bg-white">
@@ -643,52 +621,6 @@ const AboutUs = () => {
   );
 };
 
-const Influencers = () => {
-  const videoUrls = [
-    "https://res.cloudinary.com/dbuiqh0ee/video/upload/v1780171334/SnapInsta.to_AQMw0evuZYb8K26sTIjhVd9YCQtieS3s5u1tnOcI9fJN0g7t2noR-_zpyVj3ZfkXbBcB6pOjEEzYFio2gdxV-4xT_dmpkxx.mp4",
-    "https://res.cloudinary.com/dbuiqh0ee/video/upload/v1780171355/SnapInsta.to_AQOylbhWFc6pmiUnnznfHzlpc5JYyrCk2Tk2rR1w7qNHphU4zuTT2CYtYnsnm7oR_ktyetpOgA8A1unHnHvi4ecyMU8tprIdWevz5BE_ayr8kl.mp4",
-    "https://res.cloudinary.com/dbuiqh0ee/video/upload/v1780171334/SnapInsta.to_AQNP3AH3cjJaUGtu9KrV8VK1NV0OEQzjE7dqNXFEevk4qAKZnvDG0W5Xs0lSPOj2vbu0kSux6fnOoWjuRrAjxV75_cra5zz.mp4",
-    "https://res.cloudinary.com/dbuiqh0ee/video/upload/v1780171364/SnapInsta.to_AQPsgNWgoW9Li88_6u1qAKddAvCZiiwHIOOUoo6Q5QK-LhP-tGi92uraeolfVp0OBKEInXFbPUsjshjyUct2NYLX_fbtcxc.mp4",
-    "https://res.cloudinary.com/dbuiqh0ee/video/upload/v1780171333/SnapInsta.to_AQMd9Zh_O3uiVFtRTqOKwbYTSVmpHaba3xzCAXsbrrBhpZ0-MqxHYP_Di01IOHj-NZCxeiBOeMwxY4CmW8rZSISg5rKhAyIa3EabLnY_b9zca3.mp4"
-  ];
-
-  return (
-    <section className="py-24 bg-white overflow-hidden">
-      {/* Marquee Faixa Rolante */}
-      <div className="w-full bg-secondary text-white py-4 mb-16 transform -rotate-2 scale-105 shadow-xl">
-        <div className="flex overflow-hidden whitespace-nowrap">
-          <div className="animate-infinite-scroll flex gap-8 items-center text-xl md:text-2xl font-bold uppercase tracking-wider">
-            <span>Seld Lavanderia Express a lavanderia mais top da Praia do Francês</span>
-            <span className="text-yellow-400">✦</span>
-            <span>Seld Lavanderia Express a lavanderia mais top da Praia do Francês</span>
-            <span className="text-yellow-400">✦</span>
-            <span>Seld Lavanderia Express a lavanderia mais top da Praia do Francês</span>
-            <span className="text-yellow-400">✦</span>
-            <span>Seld Lavanderia Express a lavanderia mais top da Praia do Francês</span>
-            <span className="text-yellow-400">✦</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 text-center mb-16">
-        <h3 className="text-secondary font-brand text-2xl mb-2">Conheça Mais</h3>
-        <h2 className="text-4xl md:text-6xl font-heading text-slate-800 tracking-tight">Vídeos da Lavanderia</h2>
-      </div>
-      <div className="relative">
-        <AutoScrollContainer speed={1.5}>
-          {[...videoUrls, ...videoUrls].map((url, idx) => (
-            <div key={idx} className="relative w-[280px] md:w-[320px] shrink-0 aspect-[9/16] rounded-[32px] overflow-hidden shadow-2xl border-8 border-white bg-slate-100 mr-8">
-              <VideoPlayer
-                src={url}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </AutoScrollContainer>
-      </div>
-    </section>
-  );
-};
 
 const FabricCare = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -960,23 +892,23 @@ const Contact = () => {
       <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <h3 className="text-secondary font-brand text-2xl mb-2">Visite-nos</h3>
-          <h2 className="text-4xl md:text-5xl font-heading text-slate-800 mb-8">Localização & Contato</h2>
+          <h2 className="text-4xl md:text-5xl font-heading text-slate-800 mb-8">Localização & Funcionamento</h2>
           <div className="space-y-6 mb-10">
             <div className="flex items-start gap-4">
               <div className="p-3 bg-gelo rounded-xl text-secondary"><MapPin size={24} /></div>
-              <div><h4 className="font-bold text-slate-800">Endereço</h4><p className="text-slate-600">Av. Caravelas, 39 – Praia do Francês, Marechal Deodoro – AL</p></div>
+              <div><h4 className="font-bold text-slate-800">Localização</h4><p className="text-slate-600">Trevo do Francês, dentro do Posto Ipiranga (Rodovia Ib Gatto Falcao, s/n, Povoado Francês, Marechal Deodoro - AL).</p></div>
             </div>
             <div className="flex items-start gap-4">
               <div className="p-3 bg-gelo rounded-xl text-secondary"><ClockIcon size={24} /></div>
-              <div><h4 className="font-bold text-slate-800">Horário</h4><p className="text-slate-600">Segunda a Sábado: 07h às 22h (Atendimento 24h via Totem)</p></div>
+              <div><h4 className="font-bold text-slate-800">Como Funciona o Autosserviço</h4><p className="text-slate-600">Chegue e use! Sem agendamento. Ciclo completo (lavagem + secagem) em média de 1 hora.</p></div>
             </div>
           </div>
           <div className="flex gap-4">
-            <Button variant="primary" className="rounded-full" href={WHATSAPP_LINK}>WhatsApp</Button>
+            <Button variant="primary" className="rounded-full" href={WHATSAPP_LINK}>Atendimento WhatsApp</Button>
           </div>
         </div>
         <div className="h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-slate-200">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.33418512215!2d-35.8458909!3d-9.7801833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7067d983448f415%3A0x86094727188293d2!2sAv.%20Caravelas%2C%2039%20-%20Praia%20do%20Franc%C3%AAs%2C%20Marechal%20Deodoro%20-%20AL%2C%2057160-000!5e0!3m2!1spt-BR!2sbr!4v1707000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.33418512215!2d-35.8458909!3d-9.7801833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7067d983448f415%3A0x86094727188293d2!2sPosto%20Ipiranga%20-%20Trevo%20do%20Franc%C3%AAs!5e0!3m2!1spt-BR!2sbr!4v1707000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
         </div>
       </div>
     </section>
@@ -1083,7 +1015,7 @@ export default function App() {
       <Plans />
       <ScheduleCollection />
       <AboutUs />
-      <Influencers />
+
       <FabricCare />
       <Differentials />
       <Instagram />
