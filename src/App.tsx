@@ -480,6 +480,96 @@ const Structure = () => {
   );
 };
 
+// --- Interactive Experience ---
+
+const InteractiveExperience = () => {
+  const [activeTab, setActiveTab] = useState('differentials');
+
+  const tabs = [
+    { id: 'differentials', title: 'Diferenciais' },
+    { id: 'benefits', title: 'Benefícios' },
+    { id: 'fabrics', title: 'Tecidos' },
+    { id: 'about', title: 'Sobre Nós' },
+  ];
+
+  return (
+    <section className="py-24 bg-[#1C3550] text-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl md:text-5xl font-brand text-center mb-16">Experiência Seld</h2>
+        
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-6 py-3 rounded-full text-sm font-bold transition-all ${
+                activeTab === tab.id 
+                ? 'bg-red-600 text-white shadow-lg shadow-red-900/50' 
+                : 'bg-[#254668] text-slate-300 hover:bg-[#2c537a]'
+              }`}
+            >
+              {tab.title}
+            </button>
+          ))}
+        </div>
+
+        <div className="min-h-[400px]">
+          {activeTab === 'differentials' && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {DIFFERENTIALS.map((item, idx) => (
+                <div key={idx} className="p-8 rounded-[20px] bg-[#254668] flex flex-col items-center text-center">
+                  <div className="mb-4 text-red-500">{item.icon}</div>
+                  <h4 className="font-bold mb-2">{item.title}</h4>
+                  <p className="text-sm text-slate-300">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {activeTab === 'benefits' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="bg-[#254668] p-8 rounded-2xl">
+                <h4 className="font-bold text-lg mb-4 text-red-500">Produtos OMO e Comfort</h4>
+                <p className="text-slate-300">Fragrância premium inclusa em cada ciclo.</p>
+              </div>
+              <div className="bg-[#254668] p-8 rounded-2xl">
+                <h4 className="font-bold text-lg mb-4 text-red-500">Pronto em 60 minutos</h4>
+                <p className="text-slate-300">Agilidade sem abrir mão da qualidade.</p>
+              </div>
+              <div className="bg-[#254668] p-8 rounded-2xl">
+                <h4 className="font-bold text-lg mb-4 text-red-500">Toque Humano</h4>
+                <p className="text-slate-300">Colaboradores treinados para cuidar das suas peças.</p>
+              </div>
+              <div className="bg-[#254668] p-8 rounded-2xl">
+                <h4 className="font-bold text-lg mb-4 text-red-500">Organização VIP</h4>
+                <p className="text-slate-300">Suas roupas separadas e dobradas com perfeição.</p>
+              </div>
+            </div>
+          )}
+          {activeTab === 'fabrics' && (
+            <div className="max-w-3xl mx-auto text-center">
+                <p className="text-slate-300 mb-8">Selecione o tecido para dicas de cuidado:</p>
+                <div className="flex gap-4 justify-center flex-wrap">
+                    {FABRIC_CARE_DATA.map((item, idx) => (
+                        <div key={idx} className="p-6 bg-[#254668] rounded-xl w-32">
+                            {item.icon}
+                            <p className="mt-2 font-bold">{item.type}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+          )}
+          {activeTab === 'about' && (
+            <div className="max-w-3xl mx-auto text-center text-slate-300 leading-relaxed">
+              <p className="mb-6">A Seld nasceu para transformar sua rotina, trazendo tecnologia e eficiência para o cuidado com suas roupas na Praia do Francês.</p>
+              <p>Combinamos a sabedoria do cuidado artesanal com a mais alta tecnologia em lavanderia. Nossos equipamentos de ponta garantem uma limpeza profunda, enquanto o acabamento manual assegura um toque de perfeição.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Reviews = () => {
   return (
     <section className="py-24 bg-[#1C3550]">
@@ -583,8 +673,15 @@ const plans = [
             <motion.div 
               key={idx} 
               className="relative bg-[#254668] rounded-[40px] p-10 shadow-xl shadow-slate-900/50 flex flex-col items-center text-center"
-              whileHover={{ scale: 1.05, rotate: idx % 2 === 0 ? -1 : 1 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              initial={{ y: 0 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ 
+                duration: 4 + Math.random() * 2, 
+                repeat: Infinity, 
+                ease: "easeInOut",
+                delay: Math.random() * 2 
+              }}
+              whileHover={{ scale: 1.05 }}
             >
               <div className="mb-6">
                 {plan.icon}
@@ -1067,16 +1164,12 @@ export default function App() {
       <Header />
       <Hero />
       <Structure />
-      <PremiumService />
+      <InteractiveExperience />
+      <Plans />
       <GoogleReviewsSection />
       <Reviews />
       <WhatsAppNotice />
-      <Plans />
       <ScheduleCollection />
-      <AboutUs />
-
-      <FabricCare />
-      <Differentials />
       <Instagram />
       <Testimonials />
       <FAQ />
