@@ -95,6 +95,42 @@ export const TESTIMONIALS = [
     comment: 'Atendimento nota 10! As meninas são super atenciosas e cuidadosas com as roupas.',
     avatar: 'F',
     name: 'Fernanda Lima',
+  },
+  {
+    id: 6,
+    comment: 'Adorei a praticidade, em 1 hora resolvi a lavagem de uma semana toda!',
+    avatar: 'B',
+    name: 'Beatriz Santos',
+  },
+  {
+    id: 7,
+    comment: 'Excelente qualidade, as roupas voltam impecáveis e com um perfume maravilhoso.',
+    avatar: 'R',
+    name: 'Ricardo Oliveira',
+  },
+  {
+    id: 8,
+    comment: 'Muito fácil de usar, preço ótimo e economia de tempo garantida.',
+    avatar: 'P',
+    name: 'Paula Souza',
+  },
+  {
+    id: 9,
+    comment: 'Recomendo a todos, um serviço essencial para quem não tem tempo a perder.',
+    avatar: 'T',
+    name: 'Thiago Martins',
+  },
+  {
+    id: 10,
+    comment: 'A melhor experiência em lavanderia self-service, muito organizado.',
+    avatar: 'L',
+    name: 'Larissa Costa',
+  },
+  {
+    id: 11,
+    comment: 'Paz de espírito total, deixar as roupas lá e saber que estarão bem cuidadas.',
+    avatar: 'V',
+    name: 'Viviane Mendes',
   }
 ];
 
@@ -114,6 +150,34 @@ export const FAQ_ITEMS = [
   {
     question: 'Vocês lavam edredons e cobertores?',
     answer: 'Sim! Nossas máquinas têm capacidade para lavar edredons de todos os tamanhos, incluindo King Size.',
+  },
+  {
+    question: 'Posso lavar roupas delicadas?',
+    answer: 'Sim, mas recomendamos usar o ciclo delicado e verificar as etiquetas das roupas antes de colocar na máquina.',
+  },
+  {
+    question: 'O local é seguro?',
+    answer: 'Sim, possuímos monitoramento e o ambiente é planejado para garantir a segurança dos nossos clientes e equipamentos.',
+  },
+  {
+    question: 'Preciso levar sabão e amaciante?',
+    answer: 'Não! Os produtos OMO e Comfort já estão incluídos no ciclo e são dosados automaticamente pela própria máquina.',
+  },
+  {
+    question: 'Aceitam cartão de crédito?',
+    answer: 'Sim, aceitamos cartões de crédito, débito e também PIX para maior comodidade.',
+  },
+  {
+    question: 'Existe estacionamento?',
+    answer: 'Sim, por estarmos dentro do Posto Ipiranga, oferecemos estacionamento amplo e seguro para nossos clientes.',
+  },
+  {
+    question: 'A lavanderia funciona todos os dias?',
+    answer: 'Sim, estamos abertos diariamente para melhor atendê-lo.',
+  },
+  {
+    question: 'Posso deixar as roupas e buscar depois?',
+    answer: 'Sim, nosso serviço premium permite que você deixe as roupas conosco e nós fazemos todo o processo para você.',
   }
 ];
 

@@ -354,7 +354,7 @@ const Hero = () => {
 
 const PremiumService = () => {
   return (
-    <section id="premium" className="py-24 bg-[#1C3550] text-slate-100">
+    <section id="premium" className="py-24 bg-[#1C3550] text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           {/* Image Side */}
@@ -376,45 +376,45 @@ const PremiumService = () => {
 
           {/* Text Side */}
           <div>
-            <h3 className="text-primary font-brand text-2xl mb-4">Seld: Economia Inteligente para sua Rotina</h3>
+            <h3 className="text-red-500 font-brand text-2xl mb-4">Seld: Economia Inteligente para sua Rotina</h3>
             <h2 className="text-4xl md:text-6xl font-brand text-white mb-8 leading-tight">
-              Sua economia <span className="text-primary">começa aqui</span>
+              Sua economia <span className="text-red-500">começa aqui</span>
             </h2>
             <p className="text-slate-200 text-lg md:text-xl leading-relaxed mb-10">
               Economize água, energia e tempo com a Seld. Lavagem profissional, com o menor custo por ciclo e resultados impecáveis. Esqueça o varal e as contas altas, deixe com a gente!
             </p>
 
-            <a href={WHATSAPP_LINK} className="inline-block bg-primary text-white font-bold py-4 px-10 rounded-full hover:bg-secondary transition-all shadow-lg hover:shadow-xl text-lg">
+            <a href={WHATSAPP_LINK} className="inline-block bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all shadow-lg hover:shadow-xl text-lg mb-12">
               Falar no WhatsApp
             </a>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
               <div className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 p-1 rounded-full"><CheckCircle2 size={18} className="text-green-600" /></div>
+                <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
                 <div>
-                  <h4 className="font-bold text-secondary">Produtos OMO e Comfort</h4>
-                  <p className="text-sm text-slate-500">Fragrância premium inclusa em cada ciclo.</p>
+                  <h4 className="font-bold text-white">Produtos OMO e Comfort</h4>
+                  <p className="text-sm text-slate-300">Fragrância premium inclusa em cada ciclo.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 p-1 rounded-full"><CheckCircle2 size={18} className="text-green-600" /></div>
+                <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
                 <div>
-                  <h4 className="font-bold text-secondary">Pronto em 60 minutos</h4>
-                  <p className="text-sm text-slate-500">Agilidade sem abrir mão da qualidade.</p>
+                  <h4 className="font-bold text-white">Pronto em 60 minutos</h4>
+                  <p className="text-sm text-slate-300">Agilidade sem abrir mão da qualidade.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 p-1 rounded-full"><CheckCircle2 size={18} className="text-green-600" /></div>
+                <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
                 <div>
-                  <h4 className="font-bold text-secondary">Toque Humano</h4>
-                  <p className="text-sm text-slate-500">Colaboradores treinados para cuidar das suas peças.</p>
+                  <h4 className="font-bold text-white">Toque Humano</h4>
+                  <p className="text-sm text-slate-300">Colaboradores treinados para cuidar das suas peças.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 p-1 rounded-full"><CheckCircle2 size={18} className="text-green-600" /></div>
+                <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
                 <div>
-                  <h4 className="font-bold text-secondary">Organização VIP</h4>
-                  <p className="text-sm text-slate-500">Suas roupas separadas e dobradas com perfeição.</p>
+                  <h4 className="font-bold text-white">Organização VIP</h4>
+                  <p className="text-sm text-slate-300">Suas roupas separadas e dobradas com perfeição.</p>
                 </div>
               </div>
             </div>
@@ -580,7 +580,12 @@ const plans = [
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
           {plans.map((plan, idx) => (
-            <div key={idx} className="relative bg-[#254668] rounded-[40px] p-10 shadow-xl shadow-slate-900/50 flex flex-col items-center text-center">
+            <motion.div 
+              key={idx} 
+              className="relative bg-[#254668] rounded-[40px] p-10 shadow-xl shadow-slate-900/50 flex flex-col items-center text-center"
+              whileHover={{ scale: 1.05, rotate: idx % 2 === 0 ? -1 : 1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="mb-6">
                 {plan.icon}
               </div>
@@ -606,7 +611,7 @@ const plans = [
               >
                 {plan.buttonText}
               </Button>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -961,7 +966,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-slate-700">
-          <iframe src="https://www.google.com/maps?q=Trevo+do+Francês,Marechal+Deodoro,AL&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps?q=Posto+Ipiranga,+Trevo+do+Francês,+Marechal+Deodoro,+AL&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
         </div>
       </div>
     </section>
