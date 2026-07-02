@@ -480,6 +480,36 @@ const Structure = () => {
   );
 };
 
+const Reviews = () => {
+  return (
+    <section className="py-24 bg-[#1C3550]">
+      <div className="container mx-auto px-4 mb-16 text-center">
+        <h2 className="text-4xl md:text-5xl font-heading text-white">O que dizem sobre a Seld</h2>
+      </div>
+      <div className="relative">
+        <AutoScrollContainer speed={2}>
+          {[...TESTIMONIALS, ...TESTIMONIALS].map((item, idx) => (
+            <div key={idx} className="shrink-0 w-80 p-8 rounded-2xl bg-[#254668] border border-white/10 text-white mr-6">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="italic text-slate-200 mb-6">"{item.comment}"</p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center font-bold">
+                  {item.avatar}
+                </div>
+                <span className="font-bold">{item.name}</span>
+              </div>
+            </div>
+          ))}
+        </AutoScrollContainer>
+      </div>
+    </section>
+  );
+};
+
 const WhatsAppNotice = () => {
   return (
     <section className="py-20 bg-[#e9eff5]">
@@ -524,7 +554,7 @@ const plans = [
       price: "22",
       cents: "50",
       unit: "cesto",
-      icon: <Droplets size={44} className="text-secondary" />,
+      icon: <Droplets size={44} className="text-white" />,
       buttonText: "Agendar Lavagem",
       variant: "success" as const
     },
@@ -534,38 +564,38 @@ const plans = [
       price: "20",
       cents: "00",
       unit: "cesto",
-      icon: <Wind size={44} className="text-secondary" />,
+      icon: <Wind size={44} className="text-white" />,
       buttonText: "Agendar Secagem",
       variant: "success" as const
     }
   ];
 
   return (
-    <section id="plans" className="py-24 bg-gelo">
+    <section id="plans" className="py-24 bg-[#1C3550]">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-brand text-secondary mb-4">Nossos Serviços</h2>
-          <p className="text-slate-700 text-xl">Preço justo e qualidade garantida.</p>
+          <h2 className="text-5xl md:text-6xl font-brand text-white mb-4">Nossos Serviços</h2>
+          <p className="text-slate-200 text-xl">Preço justo e qualidade garantida.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
           {plans.map((plan, idx) => (
-            <div key={idx} className="relative bg-white rounded-[40px] p-10 shadow-xl shadow-slate-200/50 flex flex-col items-center text-center">
+            <div key={idx} className="relative bg-[#254668] rounded-[40px] p-10 shadow-xl shadow-slate-900/50 flex flex-col items-center text-center">
               <div className="mb-6">
                 {plan.icon}
               </div>
               
-              <h3 className="text-2xl font-bold text-secondary mb-4">{plan.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-8 max-w-[280px]">
+              <h3 className="text-2xl font-bold text-white mb-4">{plan.title}</h3>
+              <p className="text-slate-300 text-sm leading-relaxed mb-8 max-w-[280px]">
                 {plan.description}
               </p>
 
-              <div className="flex items-start text-secondary mb-10">
+              <div className="flex items-start text-white mb-10">
                 <span className="text-lg font-bold mt-2 mr-1">R$</span>
                 <span className="text-6xl font-bold leading-none">{plan.price}</span>
                 <div className="flex flex-col items-start ml-1">
-                  <span className="text-2xl font-bold border-b-2 border-secondary leading-none mb-1">,{plan.cents}</span>
-                  <span className="text-xs font-medium text-slate-400">/ {plan.unit}</span>
+                  <span className="text-2xl font-bold border-b-2 border-white leading-none mb-1">,{plan.cents}</span>
+                  <span className="text-xs font-medium text-slate-300">/ {plan.unit}</span>
                 </div>
               </div>
 
@@ -586,18 +616,16 @@ const plans = [
 
 const ScheduleCollection = () => {
   return (
-    <section className="relative py-28 overflow-hidden flex items-center justify-center">
-      <div className="absolute inset-0 z-0 bg-slate-100"></div>
-
+    <section className="relative py-28 overflow-hidden flex items-center justify-center bg-[#1C3550]">
       <div className="container mx-auto px-4 relative z-10 flex justify-center">
-        <div className="bg-white p-8 md:p-12 rounded-2xl shadow-2xl border border-slate-100 max-w-lg w-full text-left transition-all hover:shadow-3xl">
-          <h2 className="text-4xl md:text-5xl font-brand text-[#2d3a82] mb-4">Agende sua Coleta</h2>
-          <p className="text-slate-700 text-lg mb-10 leading-relaxed">
+        <div className="bg-[#254668] p-8 md:p-12 rounded-2xl shadow-2xl border border-white/10 max-w-lg w-full text-left transition-all hover:shadow-3xl">
+          <h2 className="text-4xl md:text-5xl font-brand text-white mb-4">Agende sua Coleta</h2>
+          <p className="text-slate-200 text-lg mb-10 leading-relaxed">
             Clique no botão abaixo para agendar sua coleta diretamente pelo WhatsApp.
           </p>
           <Button 
             variant="success" 
-            className="w-full py-5 text-lg rounded-xl flex items-center justify-center gap-3 shadow-lg shadow-green-200"
+            className="w-full py-5 text-lg rounded-xl flex items-center justify-center gap-3 shadow-lg shadow-red-900/20"
             href={WHATSAPP_LINK}
           >
             <MessageCircle size={26} className="fill-white" /> Agendar via WhatsApp
@@ -610,34 +638,34 @@ const ScheduleCollection = () => {
 
 const AboutUs = () => {
   return (
-    <section id="about" className="bg-[#f8fafc]">
+    <section id="about" className="bg-[#1C3550] text-white">
       <div className="py-24 px-4 text-center">
-        <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-6">Seld: Compromisso com Economia e Qualidade</h2>
-        <p className="text-slate-500 text-xl">A Seld nasceu para transformar sua rotina, trazendo tecnologia e eficiência para o cuidado com suas roupas na Praia do Francês.</p>
+        <h2 className="text-4xl md:text-6xl font-brand text-white mb-6">Seld: Compromisso com Economia e Qualidade</h2>
+        <p className="text-slate-200 text-xl">A Seld nasceu para transformar sua rotina, trazendo tecnologia e eficiência para o cuidado com suas roupas na Praia do Francês.</p>
       </div>
 
-      <div className="py-24 px-4 text-center bg-white">
+      <div className="py-24 px-4 text-center bg-[#254668]">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-5xl font-brand text-[#2d3a82] mb-8">Nossa Essência</h3>
-          <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+          <h3 className="text-3xl md:text-5xl font-brand text-white mb-8">Nossa Essência</h3>
+          <p className="text-slate-200 text-lg md:text-xl leading-relaxed">
             Nascemos da paixão por tecidos finos e do desejo de oferecer um cuidado que vai além da simples limpeza. Cada peça é tratada como única, com a delicadeza que ela merece.
           </p>
         </div>
       </div>
 
-      <div className="py-24 px-4 text-center bg-[#e9eff5]">
+      <div className="py-24 px-4 text-center bg-[#1C3550]">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-5xl font-brand text-[#2d3a82] mb-8">Compromisso com a Natureza</h3>
-          <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+          <h3 className="text-3xl md:text-5xl font-brand text-white mb-8">Compromisso com a Natureza</h3>
+          <p className="text-slate-200 text-lg md:text-xl leading-relaxed">
             Utilizamos produtos biodegradáveis e processos de baixo impacto ambiental. A água que usamos passa por um rigoroso processo de filtragem e é reutilizada, porque acreditamos que cuidar das suas roupas é também cuidar do nosso planeta.
           </p>
         </div>
       </div>
 
-      <div className="py-24 px-4 text-center bg-white">
+      <div className="py-24 px-4 text-center bg-[#254668]">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-5xl font-brand text-[#2d3a82] mb-8">Tecnologia e Tradição</h3>
-          <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+          <h3 className="text-3xl md:text-5xl font-brand text-white mb-8">Tecnologia e Tradição</h3>
+          <p className="text-slate-200 text-lg md:text-xl leading-relaxed">
             Combinamos a sabedoria do cuidado artesanal com a mais alta tecnologia em lavanderia. Nossos equipamentos de ponta garantem uma limpeza profunda, enquanto o acabamento manual assegura um toque de perfeição.
           </p>
         </div>
@@ -652,10 +680,10 @@ const FabricCare = () => {
   const currentData = FABRIC_CARE_DATA[activeTab];
 
   return (
-    <section className="py-24 bg-[#e9eff5]">
+    <section className="py-24 bg-[#1C3550]">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-4">Cuidado para cada Tecido</h2>
-        <p className="text-slate-500 text-lg mb-16">Selecione o tipo de tecido para ver nossas recomendações de tratamento.</p>
+        <h2 className="text-4xl md:text-6xl font-brand text-white mb-4">Cuidado para cada Tecido</h2>
+        <p className="text-slate-200 text-lg mb-16">Selecione o tipo de tecido para ver nossas recomendações de tratamento.</p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mb-16">
           {FABRIC_CARE_DATA.map((item, idx) => (
@@ -664,25 +692,25 @@ const FabricCare = () => {
               onClick={() => setActiveTab(idx)}
               className={`p-8 rounded-2xl flex flex-col items-center justify-center gap-4 transition-all duration-300 border-2 ${
                 activeTab === idx 
-                ? 'bg-[#f0f7ff] border-[#3b82f6] shadow-lg shadow-blue-100 scale-105' 
-                : 'bg-white border-transparent hover:bg-slate-50 text-slate-400'
+                ? 'bg-[#254668] border-red-600 shadow-lg shadow-black/20 scale-105' 
+                : 'bg-[#254668] border-transparent hover:bg-[#2c537a] text-slate-400'
               }`}
             >
-              <div className={`${activeTab === idx ? 'text-[#2d3a82]' : 'text-slate-400'}`}>
+              <div className={`${activeTab === idx ? 'text-white' : 'text-slate-400'}`}>
                 {item.icon}
               </div>
-              <span className={`font-medium ${activeTab === idx ? 'text-[#2d3a82]' : 'text-slate-500'}`}>
+              <span className={`font-medium ${activeTab === idx ? 'text-white' : 'text-slate-300'}`}>
                 {item.type}
               </span>
             </button>
           ))}
         </div>
 
-        <div className="max-w-3xl mx-auto animate-fadeIn">
-          <h3 className="text-2xl md:text-3xl font-bold text-[#2d3a82] mb-6">
+        <div className="max-w-3xl mx-auto animate-fadeIn text-white">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6">
             {currentData.title}
           </h3>
-          <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+          <p className="text-slate-200 text-lg md:text-xl leading-relaxed">
             {currentData.description}
           </p>
         </div>
@@ -877,29 +905,29 @@ const Testimonials = () => {
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-[#1C3550]">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gelo text-primary mb-4">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#254668] text-white mb-4">
             <HelpCircle size={30} />
           </div>
-          <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-4">Perguntas Frequentes</h2>
-          <p className="text-slate-500 text-xl font-medium">Tire suas dúvidas sobre nossos serviços de lavanderia.</p>
+          <h2 className="text-4xl md:text-6xl font-brand text-white mb-4">Perguntas Frequentes</h2>
+          <p className="text-slate-200 text-xl font-medium">Tire suas dúvidas sobre nossos serviços de lavanderia.</p>
         </div>
-        <div className="divide-y divide-slate-100 border-t border-slate-100">
+        <div className="divide-y divide-white/10 border-t border-white/10">
           {FAQ_ITEMS.map((item, idx) => (
             <div key={idx} className="overflow-hidden">
               <button 
                 className="w-full py-6 flex items-center justify-between text-left group transition-all" 
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
               >
-                <span className={`text-lg font-bold transition-colors ${openIndex === idx ? 'text-primary' : 'text-slate-800'}`}>
+                <span className={`text-lg font-bold transition-colors ${openIndex === idx ? 'text-red-500' : 'text-white'}`}>
                   {item.question}
                 </span>
-                <ChevronDown className={`text-slate-400 transition-transform duration-300 ${openIndex === idx ? 'rotate-180 text-primary' : ''}`} size={20} />
+                <ChevronDown className={`text-slate-400 transition-transform duration-300 ${openIndex === idx ? 'rotate-180 text-red-500' : ''}`} size={20} />
               </button>
               <div className={`transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-[500px] opacity-100 pb-8' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                <p className="text-slate-500 text-lg leading-relaxed">
+                <p className="text-slate-300 text-lg leading-relaxed">
                   {item.answer}
                 </p>
               </div>
@@ -913,27 +941,27 @@ const FAQ = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-white border-t border-slate-50">
+    <section id="contact" className="py-20 bg-[#1C3550] border-t border-white/10 text-white">
       <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h3 className="text-secondary font-brand text-2xl mb-2">Visite-nos</h3>
-          <h2 className="text-4xl md:text-5xl font-heading text-slate-800 mb-8">Localização & Funcionamento</h2>
+          <h3 className="text-red-500 font-brand text-2xl mb-2">Visite-nos</h3>
+          <h2 className="text-4xl md:text-5xl font-heading text-white mb-8">Localização & Funcionamento</h2>
           <div className="space-y-6 mb-10">
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-gelo rounded-xl text-secondary"><MapPin size={24} /></div>
-              <div><h4 className="font-bold text-slate-800">Localização</h4><p className="text-slate-600">Trevo do Francês, dentro do Posto Ipiranga (Rodovia Ib Gatto Falcao, s/n, Povoado Francês, Marechal Deodoro - AL).</p></div>
+              <div className="p-3 bg-[#254668] rounded-xl text-white"><MapPin size={24} /></div>
+              <div><h4 className="font-bold text-white">Localização</h4><p className="text-slate-200">Trevo do Francês, dentro do Posto Ipiranga (Rodovia Ib Gatto Falcao, s/n, Povoado Francês, Marechal Deodoro - AL).</p></div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-gelo rounded-xl text-secondary"><ClockIcon size={24} /></div>
-              <div><h4 className="font-bold text-slate-800">Como Funciona o Autosserviço</h4><p className="text-slate-600">Chegue e use! Sem agendamento. Ciclo completo (lavagem + secagem) em média de 1 hora.</p></div>
+              <div className="p-3 bg-[#254668] rounded-xl text-white"><ClockIcon size={24} /></div>
+              <div><h4 className="font-bold text-white">Como Funciona o Autosserviço</h4><p className="text-slate-200">Chegue e use! Sem agendamento. Ciclo completo (lavagem + secagem) em média de 1 hora.</p></div>
             </div>
           </div>
           <div className="flex gap-4">
             <Button variant="primary" className="rounded-full" href={WHATSAPP_LINK}>Atendimento WhatsApp</Button>
           </div>
         </div>
-        <div className="h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-slate-200">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.33418512215!2d-35.8458909!3d-9.7801833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7067d983448f415%3A0x86094727188293d2!2sPosto%20Ipiranga%20-%20Trevo%20do%20Franc%C3%AAs!5e0!3m2!1spt-BR!2sbr!4v1707000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
+        <div className="h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-slate-700">
+          <iframe src="https://www.google.com/maps?q=Trevo+do+Francês,Marechal+Deodoro,AL&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
         </div>
       </div>
     </section>
@@ -1036,6 +1064,7 @@ export default function App() {
       <Structure />
       <PremiumService />
       <GoogleReviewsSection />
+      <Reviews />
       <WhatsAppNotice />
       <Plans />
       <ScheduleCollection />
