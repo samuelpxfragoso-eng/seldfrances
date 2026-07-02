@@ -144,13 +144,13 @@ const Button = ({
 }) => {
   const base = "px-6 py-3 rounded-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 text-sm uppercase tracking-wider";
   const variants = {
-    primary: "bg-primary text-white hover:bg-secondary shadow-md",
+    primary: "bg-red-600 text-white hover:bg-red-700 shadow-[0_0_15px_rgba(220,38,38,0.7)] animate-pulse",
     secondary: "bg-gelo text-secondary hover:bg-slate-200",
-    outline: "border-2 border-primary text-primary hover:bg-gelo",
-    ghost: "text-secondary hover:text-primary hover:bg-gelo",
-    accent: "bg-accent text-white hover:bg-red-700 shadow-md",
-    success: "bg-[#22c55e] text-white hover:bg-[#1eb054] shadow-md",
-    navy: "bg-secondary text-white hover:bg-primary shadow-md"
+    outline: "border-2 border-red-600 text-red-600 hover:bg-red-50",
+    ghost: "text-secondary hover:text-red-600 hover:bg-red-50",
+    accent: "bg-red-600 text-white hover:bg-red-700 shadow-[0_0_20px_rgba(220,38,38,0.7)] relative overflow-hidden group",
+    success: "bg-red-600 text-white hover:bg-red-700 shadow-[0_0_15px_rgba(220,38,38,0.7)] animate-pulse",
+    navy: "bg-red-600 text-white hover:bg-red-700 shadow-[0_0_15px_rgba(220,38,38,0.7)] animate-pulse"
   };
 
   const Component = href ? 'a' : 'button';
@@ -159,8 +159,11 @@ const Button = ({
     <Component 
       href={href}
       onClick={onClick} 
-      className={`${base} ${variants[variant]} ${className}`}
+      className={`${base} ${variants[variant]} ${className} relative`}
     >
+      {variant === 'accent' && (
+        <span className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full animate-shimmer" />
+      )}
       {children}
     </Component>
   );
@@ -216,7 +219,7 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md' : 'bg-white/80 backdrop-blur-md'}`}>
       {/* Marquee Top Bar */}
-      <div className="bg-primary text-white text-sm py-2 overflow-hidden flex items-center">
+      <div className="bg-red-600 text-white text-sm py-2 overflow-hidden flex items-center shadow-[0_0_15px_rgba(220,38,38,0.7)]">
         <div className="animate-infinite-scroll flex whitespace-nowrap items-center">
           {[...Array(2)].map((_, copyIdx) => (
             <div key={copyIdx} className="flex items-center gap-8 px-4">
@@ -314,7 +317,7 @@ const Hero = () => {
               O cheirinho de limpeza que sua <span className="text-[#D92B2B]">rotina merece</span>
             </h1>
             
-            <p className="text-lg text-white/80 mb-8 leading-relaxed">
+            <p className="text-lg text-white/90 mb-8 leading-relaxed">
               Lavanderia Sela – Cuidado premium para suas roupas com a praticidade que você merece. Lave, seque e sinta a diferença com a gente.
             </p>
             
@@ -329,32 +332,19 @@ const Hero = () => {
           </div>
 
           {/* Right Media Content */}
-          <div className="relative z-20">
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-video md:aspect-[4/3] lg:aspect-square bg-slate-100">
-              <VideoPlayer
-                src="https://res.cloudinary.com/ddfacd0wf/video/upload/v1781658510/untitled_Grok_Imagine_Video_2026-06-17_01-01-40_mpd32c.mp4"
-                className="absolute inset-0 w-full h-full object-cover"
-                overlayClassName="bottom-32 right-6"
+          <div className="relative z-20 flex justify-center">
+            <div className="relative rounded-full border-4 border-red-600/30 shadow-[0_0_40px_rgba(220,38,38,0.4)] w-80 h-80 lg:w-96 lg:h-96 overflow-hidden flex items-center justify-center bg-white/5">
+              <img 
+                src="https://res.cloudinary.com/ddfacd0wf/image/upload/v1781658505/WhatsApp_Image_2026-06-16_at_10.03.19_PM_dy6tcz.jpg" 
+                alt="Seld Lavanderia Express Logo" 
+                className="w-full h-full object-cover"
               />
-              
-              {/* Gradient Overlay for better contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              
-              {/* Floating Card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white font-brand text-xl shrink-0">
-                  SE
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900">Seld Lavanderia Express</h3>
-                  <p className="text-sm text-slate-600">Cuidado premium para suas roupas</p>
-                </div>
-              </div>
+              <div className="absolute inset-0 bg-red-600/10" />
             </div>
             
             {/* Decorative Elements */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl -z-10"></div>
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-red-600/20 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl -z-10"></div>
           </div>
         </div>
       </div>
@@ -442,13 +432,48 @@ const PremiumService = () => {
 };
 
 const Structure = () => {
+  const images = [
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955616/WhatsApp_Image_2026-07-01_at_10.00.07_PM_h1r89w.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955618/WhatsApp_Image_2026-07-01_at_10.00.05_PM_1_tf7bog.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955617/WhatsApp_Image_2026-07-01_at_10.00.05_PM_ft7h4c.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955617/WhatsApp_Image_2026-07-01_at_10.00.04_PM_tutfxd.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955617/WhatsApp_Image_2026-07-01_at_10.00.05_PM_2_ffktby.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955616/WhatsApp_Image_2026-07-01_at_10.00.03_PM_cszfay.jpg"
+  ];
+  const videoUrl = "https://res.cloudinary.com/dky9oxhzt/video/upload/v1782955625/WhatsApp_Video_2026-07-01_at_10.22.19_PM_lqse5n.mp4";
+
   return (
     <section id="structure" className="py-20 bg-[#1C3550] text-slate-100 overflow-hidden relative">
       <div className="container mx-auto px-4 mb-12 text-center">
         <h3 className="text-secondary font-brand text-2xl mb-2">Conforto & Qualidade</h3>
         <h2 className="text-4xl md:text-5xl font-heading text-white">Nossa Estrutura</h2>
       </div>
-      <div className="relative mb-20">
+      
+      <div className="mb-12">
+        <motion.div 
+          className="flex gap-4 cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{ right: 0, left: -1000 }}
+          animate={{ x: [0, -1000] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+        >
+          {images.map((img, i) => (
+            <div key={i} className="shrink-0 w-64 aspect-[9/16] rounded-2xl overflow-hidden border border-white/20">
+              <img src={img} alt={`Estrutura ${i}`} className="w-full h-full object-cover" />
+            </div>
+          ))}
+          {images.map((img, i) => (
+            <div key={`dup-${i}`} className="shrink-0 w-64 aspect-[9/16] rounded-2xl overflow-hidden border border-white/20">
+              <img src={img} alt={`Estrutura ${i}`} className="w-full h-full object-cover" />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 flex justify-center">
+        <div className="w-full max-w-4xl aspect-video rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
+          <video src={videoUrl} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+        </div>
       </div>
 
     </section>
@@ -520,7 +545,7 @@ const plans = [
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-brand text-secondary mb-4">Nossos Serviços</h2>
-          <p className="text-slate-500 text-xl">Preço justo e qualidade garantida.</p>
+          <p className="text-slate-700 text-xl">Preço justo e qualidade garantida.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
@@ -567,7 +592,7 @@ const ScheduleCollection = () => {
       <div className="container mx-auto px-4 relative z-10 flex justify-center">
         <div className="bg-white p-8 md:p-12 rounded-2xl shadow-2xl border border-slate-100 max-w-lg w-full text-left transition-all hover:shadow-3xl">
           <h2 className="text-4xl md:text-5xl font-brand text-[#2d3a82] mb-4">Agende sua Coleta</h2>
-          <p className="text-slate-600 text-lg mb-10 leading-relaxed">
+          <p className="text-slate-700 text-lg mb-10 leading-relaxed">
             Clique no botão abaixo para agendar sua coleta diretamente pelo WhatsApp.
           </p>
           <Button 
@@ -671,7 +696,7 @@ const Instagram = () => {
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-4">Siga nosso Instagram</h2>
-        <p className="text-slate-500 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="text-slate-700 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
           Também nos acompanhe nas redes sociais para ficar por dentro de novas atualizações, promoções, eventos e muito mais, tudo para tornar a sua experiência cada vez melhor!
         </p>
         <Button 

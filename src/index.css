@@ -18,6 +18,7 @@
   --animate-logo-float: logo-float 3s ease-in-out infinite;
   --animate-logo-shine: logo-shine 3.5s infinite ease-in-out;
   --animate-logo-glow: logo-glow 2.5s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s infinite linear;
 
   @keyframes infinite-scroll {
     from { transform: translateX(0); }
@@ -63,6 +64,10 @@
       box-shadow: 0 0 16px rgba(139, 26, 26, 0.8), 0 0 24px rgba(139, 26, 26, 0.4); 
       border-color: rgba(139, 26, 26, 0.8); 
     }
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
   }
 }
 
