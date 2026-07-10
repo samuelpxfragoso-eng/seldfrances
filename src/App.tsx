@@ -226,7 +226,6 @@ const Header = () => {
               {[...Array(4)].map((_, i) => (
                 <React.Fragment key={i}>
                   <span className="flex items-center gap-2"><ClockIcon size={14} /> Atendimento 24h via Totem</span>
-                  <span className="flex items-center gap-2"><MapPin size={14} /> Coleta e Entrega na Praia do Francês</span>
                   <span className="flex items-center gap-2"><Wind size={14} /> Lave e Seque em 75 minutos</span>
                   <span className="flex items-center gap-2"><Wifi size={14} /> Wi-Fi Grátis</span>
                   <span className="flex items-center gap-2"><Droplets size={14} /> Ambiente Climatizado</span>

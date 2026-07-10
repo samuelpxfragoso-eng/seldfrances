@@ -198,7 +198,7 @@ export const INSTAGRAM_IMAGES = [
   'https://res.cloudinary.com/ddfacd0wf/image/upload/v1781661548/WhatsApp_Image_2026-06-16_at_10.38.57_PM_g2iyis.jpg',
 ];
 
-export const WHATSAPP_LINK = 'https://wa.me/5582982102388?text=Mais%20informações%20sobre%20a%20lavanderia.';
+export const WHATSAPP_LINK = 'https://wa.me/5582999605686?text=Mais%20informações%20sobre%20a%20lavanderia.';
 export const GOOGLE_REVIEWS_LINK = 'https://share.google/K3px2UquXX70IVVjH';
 export const INSTAGRAM_LINK = 'https://www.instagram.com/seldlavanderia.praiadofrances?igsh=M2NldWVpejJjM25p';
 export const FRANCHISE_LINK = 'https://seldlavanderia.com.br';
