@@ -333,13 +333,8 @@ const Hero = () => {
 
           {/* Right Media Content */}
           <div className="relative z-20 flex justify-center">
-            <div className="relative rounded-full border-4 border-red-600/30 shadow-[0_0_40px_rgba(220,38,38,0.4)] w-80 h-80 lg:w-96 lg:h-96 overflow-hidden flex items-center justify-center bg-white/5">
-              <img 
-                src="https://res.cloudinary.com/ddfacd0wf/image/upload/v1781658505/WhatsApp_Image_2026-06-16_at_10.03.19_PM_dy6tcz.jpg" 
-                alt="Seld Lavanderia Express Logo" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-red-600/10" />
+            <div className="relative rounded-2xl border-4 border-red-600/30 shadow-[0_0_40px_rgba(220,38,38,0.4)] w-full max-w-lg overflow-hidden">
+              <VideoPlayer src="https://res.cloudinary.com/ltukueen/video/upload/v1783719053/WhatsApp_Video_2026-07-10_at_9.20.24_AM_ssi8hx.mp4" className="w-full aspect-video object-cover" />
             </div>
             
             {/* Decorative Elements */}
@@ -410,13 +405,6 @@ const PremiumService = () => {
                   <p className="text-sm text-slate-300">Colaboradores treinados para cuidar das suas peças.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
-                <div>
-                  <h4 className="font-bold text-white">Organização VIP</h4>
-                  <p className="text-sm text-slate-300">Suas roupas separadas e dobradas com perfeição.</p>
-                </div>
-              </div>
             </div>
 
             <div className="flex justify-start">
@@ -440,7 +428,6 @@ const Structure = () => {
     "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650364/WhatsApp_Image_2026-07-09_at_9.20.06_PM_1_bwmoh2.jpg",
     "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650364/WhatsApp_Image_2026-07-09_at_9.20.09_PM_xwpnbi.jpg"
   ];
-  const videoUrl = "https://res.cloudinary.com/dky9oxhzt/video/upload/v1783649825/WhatsApp_Video_2026-07-09_at_11.15.52_PM_zia5y5.mp4";
 
   return (
     <section id="structure" className="py-20 bg-[#1C3550] text-slate-100 overflow-hidden relative">
@@ -459,9 +446,9 @@ const Structure = () => {
         </AutoScrollContainer>
       </div>
 
-      <div className="container mx-auto px-4 flex justify-center">
+      <div className="container mx-auto px-4 flex justify-center mt-12">
         <div className="w-full max-w-4xl aspect-video rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
-          <video src={videoUrl} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+          <video src="https://res.cloudinary.com/ltukueen/video/upload/v1783719536/WhatsApp_Video_2026-07-09_at_11.15.52_PM_veqnff.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover" />
         </div>
       </div>
 
@@ -1022,8 +1009,8 @@ const Contact = () => {
 const Footer = () => {
   return (
     <footer className="bg-slate-900 text-white pt-20 pb-10">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-start">
-        <div className="max-w-xs">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
+        <div className="flex flex-col items-center md:items-start max-w-xs">
           <div className="flex items-center gap-3 mb-6 group">
             <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-blue-400/40 shadow-[0_0_12px_rgba(59,130,246,0.6)] animate-logo-float animate-logo-glow bg-white shrink-0">
               <img 
@@ -1037,7 +1024,7 @@ const Footer = () => {
               {/* Brilho Shimmer Line */}
               <div className="absolute inset-y-0 left-0 w-2.5 bg-white/70 shadow-[0_0_8px_rgba(255,255,255,0.8)] animate-logo-shine pointer-events-none" />
             </div>
-            <h2 className="text-4xl font-brand text-blue-400 transition-colors group-hover:text-blue-300">Seld Lavanderia Express</h2>
+            <h2 className="text-xl font-brand text-blue-400 transition-colors group-hover:text-blue-300">Seld Lavanderia</h2>
           </div>
           <p className="text-slate-400">Especialistas em lavanderia premium e self-service.</p>
         </div>
@@ -1049,9 +1036,9 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center md:items-start">
           <h4 className="text-lg font-bold">Redes Sociais</h4>
-          <div className="flex gap-4 justify-center md:justify-start">
+          <div className="flex gap-4">
             <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-blue-500 transition-colors"><InstagramIcon size={20} /></a>
           </div>
         </div>

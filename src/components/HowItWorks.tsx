@@ -43,6 +43,17 @@ export const HowItWorks = () => {
           </button>
         </div>
 
+        <div className="max-w-3xl mx-auto mb-10 rounded-[30px] overflow-hidden shadow-xl border-4 border-white/10">
+          <video
+            src="https://res.cloudinary.com/ltukueen/video/upload/v1783719147/WhatsApp_Video_2026-07-10_at_9.20.52_AM_fxy1kq.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
