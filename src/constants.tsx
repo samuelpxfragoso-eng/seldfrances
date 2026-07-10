@@ -173,11 +173,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: 'A lavanderia funciona todos os dias?',
-    answer: 'Sim, estamos abertos diariamente para melhor atendê-lo.',
-  },
-  {
-    question: 'Posso deixar as roupas e buscar depois?',
-    answer: 'Sim, nosso serviço premium permite que você deixe as roupas conosco e nós fazemos todo o processo para você.',
+    answer: 'Sim! Funcionamos 24 horas por dia, todos os dias da semana.',
   }
 ];
 
@@ -204,7 +200,7 @@ export const INSTAGRAM_IMAGES = [
 
 export const WHATSAPP_LINK = 'https://wa.me/5582982102388?text=Mais%20informações%20sobre%20a%20lavanderia.';
 export const GOOGLE_REVIEWS_LINK = 'https://share.google/K3px2UquXX70IVVjH';
-export const INSTAGRAM_LINK = 'https://www.instagram.com/seldlavanderia';
+export const INSTAGRAM_LINK = 'https://www.instagram.com/seldlavanderia.praiadofrances?igsh=M2NldWVpejJjM25p';
 export const FRANCHISE_LINK = 'https://seldlavanderia.com.br';
 export const SAC_EMAIL = 'sac@seldlavanderia.com.br';
 

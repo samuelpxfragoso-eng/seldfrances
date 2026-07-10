@@ -318,7 +318,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg text-white/90 mb-8 leading-relaxed">
-              Lavanderia Sela – Cuidado premium para suas roupas com a praticidade que você merece. Lave, seque e sinta a diferença com a gente.
+              Lavanderia Seld – Cuidado premium para suas roupas com a praticidade que você merece. Lave, seque e sinta a diferença com a gente.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -450,24 +450,13 @@ const Structure = () => {
       </div>
       
       <div className="mb-12">
-        <motion.div 
-          className="flex gap-4 cursor-grab active:cursor-grabbing"
-          drag="x"
-          dragConstraints={{ right: 0, left: -1000 }}
-          animate={{ x: [0, -1000] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-        >
-          {images.map((img, i) => (
-            <div key={i} className="shrink-0 w-64 aspect-[9/16] rounded-2xl overflow-hidden border border-white/20">
+        <AutoScrollContainer speed={2}>
+          {[...images, ...images].map((img, i) => (
+            <div key={i} className="shrink-0 w-64 aspect-[9/16] rounded-2xl overflow-hidden border border-white/20 mr-4">
               <img src={img} alt={`Estrutura ${i}`} className="w-full h-full object-cover" />
             </div>
           ))}
-          {images.map((img, i) => (
-            <div key={`dup-${i}`} className="shrink-0 w-64 aspect-[9/16] rounded-2xl overflow-hidden border border-white/20">
-              <img src={img} alt={`Estrutura ${i}`} className="w-full h-full object-cover" />
-            </div>
-          ))}
-        </motion.div>
+        </AutoScrollContainer>
       </div>
 
       <div className="container mx-auto px-4 flex justify-center">
@@ -591,42 +580,6 @@ const Reviews = () => {
             </div>
           ))}
         </AutoScrollContainer>
-      </div>
-    </section>
-  );
-};
-
-const WhatsAppNotice = () => {
-  return (
-    <section className="py-20 bg-[#e9eff5]">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="flex flex-col gap-6">
-          <div className="flex items-center gap-4 flex-wrap">
-            <div className="text-[#25D366]">
-              <MessageCircle size={38} fill="#25D366" className="text-white" />
-            </div>
-            <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82]">
-              Notificamos no WhatsApp
-            </h2>
-          </div>
-          <div className="bg-[#22c55e] text-white px-6 py-3 rounded-xl flex items-center gap-3 w-fit shadow-lg shadow-green-500/20">
-            <CheckCircle2 size={28} className="text-white" />
-            <span className="font-bold text-xl md:text-2xl">Quando suas roupas estão prontas!</span>
-          </div>
-          <div className="mt-4 bg-white p-8 rounded-2xl shadow-sm border border-slate-200 max-w-lg">
-            <div className="flex items-start gap-5">
-              <div className="text-accent mt-1">
-                <PartyPopper size={40} strokeWidth={1.5} />
-              </div>
-              <div>
-                <h4 className="text-2xl font-bold text-[#2d3a82] mb-3">Mais liberdade para você</h4>
-                <p className="text-slate-600 text-lg leading-relaxed">
-                  Aproveite seu tempo para fazer outras coisas enquanto cuidamos da sua roupa com todo carinho.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -1164,7 +1117,6 @@ export default function App() {
       <Plans />
       <GoogleReviewsSection />
       <Reviews />
-      <WhatsAppNotice />
       <ScheduleCollection />
       <Instagram />
       <Testimonials />
