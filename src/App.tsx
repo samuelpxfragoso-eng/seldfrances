@@ -266,7 +266,7 @@ const Header = () => {
             </a>
           ))}
           <Button variant="primary" href={WHATSAPP_LINK} className="rounded-full">
-            <MessageCircle size={18} /> Agendar
+            <MessageCircle size={18} /> Falar no WhatsApp
           </Button>
         </nav>
 
@@ -323,7 +323,7 @@ const Hero = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="accent" className="text-lg px-8 py-4 rounded-[20px] shadow-lg shadow-red-900/40" href={WHATSAPP_LINK}>
-                Quero Lavar Agora <ChevronRight size={20} />
+                Falar no WhatsApp <ChevronRight size={20} />
               </Button>
               <Button variant="outline" className="text-lg px-8 py-4 rounded-[20px] border-white/20 text-white hover:bg-white/10" href="#structure">
                 Conheça Nosso Espaço
@@ -433,14 +433,14 @@ const PremiumService = () => {
 
 const Structure = () => {
   const images = [
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955616/WhatsApp_Image_2026-07-01_at_10.00.07_PM_h1r89w.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955618/WhatsApp_Image_2026-07-01_at_10.00.05_PM_1_tf7bog.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955617/WhatsApp_Image_2026-07-01_at_10.00.05_PM_ft7h4c.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955617/WhatsApp_Image_2026-07-01_at_10.00.04_PM_tutfxd.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955617/WhatsApp_Image_2026-07-01_at_10.00.05_PM_2_ffktby.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1782955616/WhatsApp_Image_2026-07-01_at_10.00.03_PM_cszfay.jpg"
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650365/WhatsApp_Image_2026-07-09_at_9.20.03_PM_lnxdtb.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650365/WhatsApp_Image_2026-07-09_at_9.20.05_PM_u7xxbr.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650365/WhatsApp_Image_2026-07-09_at_9.20.05_PM_1_vanqbe.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650364/WhatsApp_Image_2026-07-09_at_9.20.06_PM_k9qvi3.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650364/WhatsApp_Image_2026-07-09_at_9.20.06_PM_1_bwmoh2.jpg",
+    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650364/WhatsApp_Image_2026-07-09_at_9.20.09_PM_xwpnbi.jpg"
   ];
-  const videoUrl = "https://res.cloudinary.com/dky9oxhzt/video/upload/v1782955625/WhatsApp_Video_2026-07-01_at_10.22.19_PM_lqse5n.mp4";
+  const videoUrl = "https://res.cloudinary.com/dky9oxhzt/video/upload/v1783649825/WhatsApp_Video_2026-07-09_at_11.15.52_PM_zia5y5.mp4";
 
   return (
     <section id="structure" className="py-20 bg-[#1C3550] text-slate-100 overflow-hidden relative">
@@ -538,10 +538,6 @@ const InteractiveExperience = () => {
               <div className="bg-[#254668] p-8 rounded-2xl">
                 <h4 className="font-bold text-lg mb-4 text-red-500">Toque Humano</h4>
                 <p className="text-slate-300">Colaboradores treinados para cuidar das suas peças.</p>
-              </div>
-              <div className="bg-[#254668] p-8 rounded-2xl">
-                <h4 className="font-bold text-lg mb-4 text-red-500">Organização VIP</h4>
-                <p className="text-slate-300">Suas roupas separadas e dobradas com perfeição.</p>
               </div>
             </div>
           )}
@@ -645,7 +641,7 @@ const plans = [
       cents: "50",
       unit: "cesto",
       icon: <Droplets size={44} className="text-white" />,
-      buttonText: "Agendar Lavagem",
+      buttonText: "Falar no WhatsApp",
       variant: "success" as const
     },
     {
@@ -655,7 +651,7 @@ const plans = [
       cents: "00",
       unit: "cesto",
       icon: <Wind size={44} className="text-white" />,
-      buttonText: "Agendar Secagem",
+      buttonText: "Falar no WhatsApp",
       variant: "success" as const
     }
   ];
@@ -721,16 +717,16 @@ const ScheduleCollection = () => {
     <section className="relative py-28 overflow-hidden flex items-center justify-center bg-[#1C3550]">
       <div className="container mx-auto px-4 relative z-10 flex justify-center">
         <div className="bg-[#254668] p-8 md:p-12 rounded-2xl shadow-2xl border border-white/10 max-w-lg w-full text-left transition-all hover:shadow-3xl">
-          <h2 className="text-4xl md:text-5xl font-brand text-white mb-4">Agende sua Coleta</h2>
+          <h2 className="text-4xl md:text-5xl font-brand text-white mb-4">Fale Conosco</h2>
           <p className="text-slate-200 text-lg mb-10 leading-relaxed">
-            Clique no botão abaixo para agendar sua coleta diretamente pelo WhatsApp.
+            Clique no botão abaixo para falar conosco diretamente pelo WhatsApp.
           </p>
           <Button 
             variant="success" 
             className="w-full py-5 text-lg rounded-xl flex items-center justify-center gap-3 shadow-lg shadow-red-900/20"
             href={WHATSAPP_LINK}
           >
-            <MessageCircle size={26} className="fill-white" /> Agendar via WhatsApp
+            <MessageCircle size={26} className="fill-white" /> Falar no WhatsApp
           </Button>
         </div>
       </div>

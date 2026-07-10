@@ -202,8 +202,8 @@ export const INSTAGRAM_IMAGES = [
   'https://res.cloudinary.com/ddfacd0wf/image/upload/v1781661548/WhatsApp_Image_2026-06-16_at_10.38.57_PM_g2iyis.jpg',
 ];
 
-export const WHATSAPP_LINK = 'https://wa.me/5582999605686?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Seld%20Lavanderia%20Express%20na%20Praia%20do%20Francês.';
-export const GOOGLE_REVIEWS_LINK = 'https://g.page/r/CZm98FRTjnpKEBM/review';
+export const WHATSAPP_LINK = 'https://wa.me/5582982102388?text=Mais%20informações%20sobre%20a%20lavanderia.';
+export const GOOGLE_REVIEWS_LINK = 'https://share.google/K3px2UquXX70IVVjH';
 export const INSTAGRAM_LINK = 'https://www.instagram.com/seldlavanderia';
 export const FRANCHISE_LINK = 'https://seldlavanderia.com.br';
 export const SAC_EMAIL = 'sac@seldlavanderia.com.br';
