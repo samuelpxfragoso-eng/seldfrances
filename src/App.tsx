@@ -307,7 +307,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Left Text Content */}
           <div className="max-w-xl z-20">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-sm font-bold mb-6 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-sm font-bold mb-6 uppercase tracking-wider whitespace-nowrap">
               <span className="w-2 h-2 rounded-full bg-accent"></span>
               Referência em Cuidado Premium
             </div>
