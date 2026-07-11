@@ -161,7 +161,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: 'Preciso levar sabão e amaciante?',
-    answer: 'Não! Os produtos OMO e Comfort já estão incluídos no ciclo e são dosados automaticamente pela própria máquina.',
+    answer: 'Não! Todas as lavagens utilizam produtos profissionais da Unilever, com dosagem automática e precisa em cada ciclo, proporcionando limpeza eficiente, proteção dos tecidos e um excelente resultado. Basta trazer suas roupas.',
   },
   {
     question: 'Aceitam cartão de crédito?',
@@ -199,7 +199,7 @@ export const INSTAGRAM_IMAGES = [
 ];
 
 export const WHATSAPP_LINK = 'https://wa.me/5582999605686?text=Mais%20informações%20sobre%20a%20lavanderia.';
-export const GOOGLE_REVIEWS_LINK = 'https://share.google/K3px2UquXX70IVVjH';
+export const GOOGLE_REVIEWS_LINK = 'https://g.page/r/CVbQMYqxgYLUEBM/review';
 export const INSTAGRAM_LINK = 'https://www.instagram.com/seldlavanderia.praiadofrances?igsh=M2NldWVpejJjM25p';
 export const FRANCHISE_LINK = 'https://seldlavanderia.com.br';
 export const SAC_EMAIL = 'sac@seldlavanderia.com.br';

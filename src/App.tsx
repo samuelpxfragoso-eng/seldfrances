@@ -313,20 +313,23 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl lg:text-7xl font-brand leading-[1.1] mb-6 tracking-tight">
-              O cheirinho de limpeza que sua <span className="text-[#D92B2B]">rotina merece</span>
+              Sua rotina merece praticidade. <span className="text-[#D92B2B]">Suas roupas merecem o melhor cuidado.</span>
             </h1>
             
             <p className="text-lg text-white/90 mb-8 leading-relaxed">
-              Lavanderia Seld – Cuidado premium para suas roupas com a praticidade que você merece. Lave, seque e sinta a diferença com a gente.
+              Lavanderia Seld Express 24hs. Praticidade para o seu dia a dia.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Button variant="accent" className="text-lg px-8 py-4 rounded-[20px] shadow-lg shadow-red-900/40" href={WHATSAPP_LINK}>
                 Falar no WhatsApp <ChevronRight size={20} />
               </Button>
-              <Button variant="outline" className="text-lg px-8 py-4 rounded-[20px] border-white/20 text-white hover:bg-white/10" href="#structure">
-                Conheça Nosso Espaço
-              </Button>
+            </div>
+            
+            {/* Coupon Highlight */}
+            <div className="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-md">
+              <p className="text-xl font-bold mb-2 text-white">🚨 Temos um cupom de boas vindas!</p>
+              <p className="text-lg text-slate-200 mb-4">🎁 🎉 Bem-vindo à Seld! Use o cupom <span className="text-yellow-400 font-bold text-2xl">SOUSELDR</span>. Ganhe desconto em suas lavagens. Cada CPF pode utilizar o cupom em até 5 vezes.</p>
             </div>
           </div>
 
@@ -386,8 +389,8 @@ const PremiumService = () => {
               <div className="flex items-start gap-3">
                 <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
                 <div>
-                  <h4 className="font-bold text-white">Produtos OMO e Comfort</h4>
-                  <p className="text-sm text-slate-300">Fragrância premium inclusa em cada ciclo.</p>
+                  <h4 className="font-bold text-white">Produtos Profissionais Unilever</h4>
+                  <p className="text-sm text-slate-300">Produtos profissionais com dosagem automática em cada ciclo.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -400,8 +403,8 @@ const PremiumService = () => {
               <div className="flex items-start gap-3">
                 <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
                 <div>
-                  <h4 className="font-bold text-white">Toque Humano</h4>
-                  <p className="text-sm text-slate-300">Colaboradores treinados para cuidar das suas peças.</p>
+                  <h4 className="font-bold text-white">Ambiente Seguro e Climatizado</h4>
+                  <p className="text-sm text-slate-300">Conforto e tranquilidade enquanto você aguarda.</p>
                 </div>
               </div>
             </div>
@@ -431,7 +434,7 @@ const Structure = () => {
   return (
     <section id="structure" className="py-20 bg-[#1C3550] text-slate-100 overflow-hidden relative">
       <div className="container mx-auto px-4 mb-12 text-center">
-        <h3 className="text-secondary font-brand text-2xl mb-2">Conforto & Qualidade</h3>
+        <h3 className="text-white font-brand text-3xl mb-2">Conforto & Qualidade</h3>
         <h2 className="text-4xl md:text-5xl font-heading text-white">Nossa Estrutura</h2>
       </div>
       
@@ -503,16 +506,16 @@ const InteractiveExperience = () => {
           {activeTab === 'benefits' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="bg-[#254668] p-8 rounded-2xl">
-                <h4 className="font-bold text-lg mb-4 text-red-500">Produtos OMO e Comfort</h4>
-                <p className="text-slate-300">Fragrância premium inclusa em cada ciclo.</p>
+                <h4 className="font-bold text-lg mb-4 text-red-500">Produtos Profissionais Unilever</h4>
+                <p className="text-slate-300">Produtos profissionais com dosagem automática em cada ciclo.</p>
               </div>
               <div className="bg-[#254668] p-8 rounded-2xl">
-                <h4 className="font-bold text-lg mb-4 text-red-500">Pronto em 60 minutos</h4>
+                <h4 className="font-bold text-lg mb-4 text-red-500">Pronto em 75 minutos</h4>
                 <p className="text-slate-300">Agilidade sem abrir mão da qualidade.</p>
               </div>
               <div className="bg-[#254668] p-8 rounded-2xl">
-                <h4 className="font-bold text-lg mb-4 text-red-500">Toque Humano</h4>
-                <p className="text-slate-300">Colaboradores treinados para cuidar das suas peças.</p>
+                <h4 className="font-bold text-lg mb-4 text-red-500">Ambiente Seguro e Climatizado</h4>
+                <p className="text-slate-300">Conforto e tranquilidade enquanto você aguarda.</p>
               </div>
             </div>
           )}
