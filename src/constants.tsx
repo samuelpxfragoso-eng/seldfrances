@@ -19,7 +19,7 @@ export const DIFFERENTIALS = [
   {
     icon: <Clock size={32} />,
     title: 'Agilidade',
-    description: 'Roupas limpas e secas em até 60 minutos com nossos equipamentos de ponta.',
+    description: 'Roupas limpas e secas em até 75 minutos com nossos equipamentos de ponta.',
   },
   {
     icon: <ThumbsUp size={32} />,

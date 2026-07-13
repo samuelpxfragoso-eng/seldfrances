@@ -397,7 +397,7 @@ const PremiumService = () => {
               <div className="flex items-start gap-3">
                 <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
                 <div>
-                  <h4 className="font-bold text-white">Pronto em 60 minutos</h4>
+                  <h4 className="font-bold text-white">Pronto em 75 minutos</h4>
                   <p className="text-sm text-slate-300">Agilidade sem abrir mão da qualidade.</p>
                 </div>
               </div>
@@ -843,19 +843,89 @@ const Differentials = () => {
 };
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % Math.ceil(TESTIMONIALS.length / (window.innerWidth < 768 ? 1 : 3)));
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
   };
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? Math.ceil(TESTIMONIALS.length / (window.innerWidth < 768 ? 1 : 3)) - 1 : prev - 1));
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    // Initial check
+    setTimeout(checkScroll, 150);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, []);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const scrollAmount = el.clientWidth * 0.75;
+    el.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
   };
+
+  // Mouse drag-to-scroll support for desktop
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let isDown = false;
+    let startX: number;
+    let scrollLeft: number;
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDown = true;
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+      el.style.scrollSnapType = 'none'; // smoother dragging without snapping
+    };
+
+    const onMouseLeave = () => {
+      isDown = false;
+      el.style.scrollSnapType = 'x mandatory';
+    };
+
+    const onMouseUp = () => {
+      isDown = false;
+      el.style.scrollSnapType = 'x mandatory';
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      el.scrollLeft = scrollLeft - walk;
+    };
+
+    el.addEventListener('mousedown', onMouseDown);
+    el.addEventListener('mouseleave', onMouseLeave);
+    el.addEventListener('mouseup', onMouseUp);
+    el.addEventListener('mousemove', onMouseMove);
+
+    return () => {
+      el.removeEventListener('mousedown', onMouseDown);
+      el.removeEventListener('mouseleave', onMouseLeave);
+      el.removeEventListener('mouseup', onMouseUp);
+      el.removeEventListener('mousemove', onMouseMove);
+    };
+  }, []);
 
   return (
-    <section className="py-24 bg-[#e9eff5]">
+    <section className="py-24 bg-slate-50 border-t border-b border-slate-100 overflow-hidden">
       <div className="container mx-auto px-4 text-center mb-12">
         <h2 className="text-4xl md:text-6xl font-brand text-[#2d3a82] mb-4">O que nossos clientes dizem</h2>
         <p className="text-slate-500 text-lg md:text-xl max-w-3xl mx-auto mb-10">
@@ -863,80 +933,72 @@ const Testimonials = () => {
         </p>
         <Button 
           variant="navy" 
-          className="rounded-xl px-10 py-4 mb-20"
+          className="rounded-xl px-10 py-4 mb-12"
           href={GOOGLE_REVIEWS_LINK}
         >
-          Deixe sua Avaliação
+          Deixe sua Avaliação no Google
         </Button>
       </div>
 
       <div className="container mx-auto px-4 relative max-w-7xl">
+        {/* Navigation Buttons */}
         <button 
-          onClick={handlePrev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-10 z-10 p-3 bg-white rounded-full shadow-lg text-slate-400 hover:text-blue-500 transition-colors"
+          onClick={() => handleScroll('left')}
+          className={`absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white rounded-full shadow-lg text-slate-600 hover:text-red-500 hover:scale-105 active:scale-95 transition-all ${!canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`}
+          disabled={!canScrollLeft}
+          aria-label="Avaliações anteriores"
         >
           <ChevronLeft size={24} />
         </button>
         <button 
-          onClick={handleNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-10 z-10 p-3 bg-white rounded-full shadow-lg text-slate-400 hover:text-blue-500 transition-colors"
+          onClick={() => handleScroll('right')}
+          className={`absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white rounded-full shadow-lg text-slate-600 hover:text-red-500 hover:scale-105 active:scale-95 transition-all ${!canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`}
+          disabled={!canScrollRight}
+          aria-label="Próximas avaliações"
         >
           <ChevronRight size={24} />
         </button>
 
-        <div className="overflow-hidden">
-          <div 
-            ref={sliderRef}
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 min-w-full px-4">
-              {TESTIMONIALS.slice(0, 3).map((item) => (
-                <div key={item.id} className="bg-white p-10 rounded-[20px] shadow-xl border border-slate-100 flex flex-col h-full">
-                  <div className="flex gap-1 mb-6">
+        {/* Carousel Track */}
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 px-2 select-none cursor-grab active:cursor-grabbing"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          {TESTIMONIALS.map((item) => (
+            <div 
+              key={item.id} 
+              className="snap-start shrink-0 w-[85vw] sm:w-[350px] bg-white p-8 rounded-3xl border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-[280px]"
+            >
+              <div>
+                <div className="flex justify-between items-center mb-5">
+                  <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
+                      <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <div className="flex-grow border-l-2 border-blue-200 pl-6 mb-10">
-                    <p className="text-slate-600 italic text-lg leading-relaxed">
-                      "{item.comment}"
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-4 mt-auto">
-                    <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      {item.avatar}
-                    </div>
-                    <span className="font-bold text-secondary">{item.name}</span>
-                  </div>
+                  <span className="text-[10px] font-bold text-red-500 bg-red-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    Google Review
+                  </span>
                 </div>
-              ))}
-            </div>
-            {TESTIMONIALS.length > 3 && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 min-w-full px-4">
-                {TESTIMONIALS.slice(3, 6).map((item) => (
-                  <div key={item.id} className="bg-white p-10 rounded-[20px] shadow-xl border border-slate-100 flex flex-col h-full">
-                    <div className="flex gap-1 mb-6">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <div className="flex-grow border-l-2 border-blue-200 pl-6 mb-10">
-                      <p className="text-slate-600 italic text-lg leading-relaxed">
-                        "{item.comment}"
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-4 mt-auto">
-                      <div className="w-12 h-12 bg-[#2d3a82] rounded-full flex items-center justify-center text-white font-bold text-sm">
-                        {item.avatar}
-                      </div>
-                      <span className="font-bold text-[#2d3a82]">{item.name}</span>
-                    </div>
-                  </div>
-                ))}
+                <div className="border-l-2 border-red-500/20 pl-4 mb-4">
+                  <p className="text-slate-600 italic text-sm md:text-base leading-relaxed line-clamp-4">
+                    "{item.comment}"
+                  </p>
+                </div>
               </div>
-            )}
-          </div>
+              
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-sm uppercase shadow-inner">
+                  {item.avatar}
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-[#2d3a82] text-sm">{item.name}</span>
+                  <span className="text-[11px] text-slate-400">Cliente Seld Verificado</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -1008,7 +1070,7 @@ const Contact = () => {
               <img 
                 src={seldSeal} 
                 alt="Selo Seld Lavanderia - Melhor Lavanderia da Região de Marechal Deodoro" 
-                className="relative w-24 h-24 object-contain rounded-full shadow-md bg-white p-1"
+                className="relative w-32 h-32 md:w-44 md:h-44 object-contain rounded-full shadow-md bg-white p-1"
                 referrerPolicy="no-referrer"
               />
             </div>
