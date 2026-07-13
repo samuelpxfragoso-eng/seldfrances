@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { PaymentSteps } from './components/PaymentSteps';
 import { HowItWorks } from './components/HowItWorks';
+import seldSeal from './assets/images/seld_seal_1783906885335.jpg';
 import { 
   Menu, 
   X, 
@@ -996,8 +997,37 @@ const Contact = () => {
               <div><h4 className="font-bold text-white">Como Funciona o Autosserviço</h4><p className="text-slate-200">Chegue e use! Sem agendamento. Ciclo completo (lavagem + secagem) em média de 1 hora.</p></div>
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4 mb-8">
             <Button variant="primary" className="rounded-full" href={WHATSAPP_LINK}>Atendimento WhatsApp</Button>
+          </div>
+          
+          {/* Selo de Melhor Lavanderia e Avaliação do Google */}
+          <div className="p-6 bg-gradient-to-r from-blue-950/40 to-slate-900/40 border border-white/10 rounded-2xl flex flex-col sm:flex-row items-center gap-6 shadow-xl">
+            <div className="relative group shrink-0">
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+              <img 
+                src={seldSeal} 
+                alt="Selo Seld Lavanderia - Melhor Lavanderia da Região de Marechal Deodoro" 
+                className="relative w-24 h-24 object-contain rounded-full shadow-md bg-white p-1"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="flex flex-col gap-2 text-center sm:text-left">
+              <span className="text-amber-400 font-bold tracking-wider text-xs uppercase flex items-center justify-center sm:justify-start gap-1">
+                <Star size={12} className="fill-amber-400 text-amber-400" /> Destaque de Excelência
+              </span>
+              <h4 className="text-lg font-bold text-white">Melhor Lavanderia de Marechal Deodoro</h4>
+              <p className="text-sm text-slate-300">Eleitos a melhor lavanderia da região com satisfação garantida! Deixe sua avaliação no Google.</p>
+              <div className="mt-2 flex flex-wrap gap-3 justify-center sm:justify-start">
+                <Button 
+                  variant="outline" 
+                  className="text-xs py-2 px-4 rounded-xl border-white/20 text-white hover:bg-white/10 flex items-center gap-2" 
+                  href={GOOGLE_REVIEWS_LINK}
+                >
+                  <Star size={14} className="fill-yellow-400 text-yellow-400" /> Avaliar no Google
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
         <div className="h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-slate-700">
