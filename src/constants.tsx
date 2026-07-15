@@ -139,7 +139,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: 'Quais produtos são utilizados?',
-    answer: 'Utilizamos produtos profissionais da linha OMO e Comfort, garantindo limpeza profunda e um perfume duradouro.',
+    answer: 'Utilizamos produtos profissionais da Unilever, garantindo limpeza profunda e um perfume duradouro.',
   },
   {
     question: 'Quanto tempo demora para lavar e secar?',
