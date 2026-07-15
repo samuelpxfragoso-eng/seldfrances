@@ -227,7 +227,7 @@ const Header = () => {
               {[...Array(4)].map((_, i) => (
                 <React.Fragment key={i}>
                   <span className="flex items-center gap-2"><ClockIcon size={14} /> Atendimento 24h via Totem</span>
-                  <span className="flex items-center gap-2"><Wind size={14} /> Lave e Seque em 75 minutos</span>
+                  <span className="flex items-center gap-2"><Wind size={14} /> Lave e Seque em 60 minutos</span>
                   <span className="flex items-center gap-2"><Wifi size={14} /> Wi-Fi Grátis</span>
                   <span className="flex items-center gap-2"><Droplets size={14} /> Ambiente Climatizado</span>
                 </React.Fragment>
@@ -310,7 +310,7 @@ const Hero = () => {
           <div className="max-w-xl z-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-sm font-bold mb-6 uppercase tracking-wider whitespace-nowrap">
               <span className="w-2 h-2 rounded-full bg-accent"></span>
-              Referência em Cuidado Premium
+              Referência em Cuidado
             </div>
             
             <h1 className="text-4xl lg:text-7xl font-brand leading-[1.1] mb-6 tracking-tight">
@@ -397,7 +397,7 @@ const PremiumService = () => {
               <div className="flex items-start gap-3">
                 <div className="mt-1 bg-white/10 p-1 rounded-full"><CheckCircle2 size={18} className="text-red-500" /></div>
                 <div>
-                  <h4 className="font-bold text-white">Pronto em 75 minutos</h4>
+                  <h4 className="font-bold text-white">Pronto em 60 minutos</h4>
                   <p className="text-sm text-slate-300">Agilidade sem abrir mão da qualidade.</p>
                 </div>
               </div>
@@ -424,12 +424,13 @@ const PremiumService = () => {
 
 const Structure = () => {
   const images = [
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650365/WhatsApp_Image_2026-07-09_at_9.20.03_PM_lnxdtb.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650365/WhatsApp_Image_2026-07-09_at_9.20.05_PM_u7xxbr.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650365/WhatsApp_Image_2026-07-09_at_9.20.05_PM_1_vanqbe.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650364/WhatsApp_Image_2026-07-09_at_9.20.06_PM_k9qvi3.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650364/WhatsApp_Image_2026-07-09_at_9.20.06_PM_1_bwmoh2.jpg",
-    "https://res.cloudinary.com/dky9oxhzt/image/upload/v1783650364/WhatsApp_Image_2026-07-09_at_9.20.09_PM_xwpnbi.jpg"
+    "https://res.cloudinary.com/dnkggulhp/image/upload/v1784071475/WhatsApp_Image_2026-07-01_at_10.00.05_PM_1_rqkjlc.jpg",
+    "https://res.cloudinary.com/dnkggulhp/image/upload/v1784069247/WhatsApp_Image_2026-07-14_at_7.45.46_PM_j6uws5.jpg",
+    "https://res.cloudinary.com/dnkggulhp/image/upload/v1784071475/WhatsApp_Image_2026-07-01_at_10.00.05_PM_wsjmnl.jpg",
+    "https://res.cloudinary.com/dnkggulhp/image/upload/v1784069247/WhatsApp_Image_2026-07-14_at_7.45.46_PM_1_dfdclx.jpg",
+    "https://res.cloudinary.com/dnkggulhp/image/upload/v1784069246/WhatsApp_Image_2026-07-14_at_7.45.45_PM_1_xvx9jt.jpg",
+    "https://res.cloudinary.com/dnkggulhp/image/upload/v1784071474/WhatsApp_Image_2026-07-01_at_10.00.05_PM_3_ndntdk.jpg",
+    "https://res.cloudinary.com/dnkggulhp/image/upload/v1784069246/WhatsApp_Image_2026-07-14_at_7.45.45_PM_v96xyo.jpg"
   ];
 
   return (
@@ -451,7 +452,7 @@ const Structure = () => {
 
       <div className="container mx-auto px-4 flex justify-center mt-12">
         <div className="w-full max-w-4xl aspect-video rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
-          <video src="https://res.cloudinary.com/ltukueen/video/upload/v1783719536/WhatsApp_Video_2026-07-09_at_11.15.52_PM_veqnff.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover" />
+          <video src="https://res.cloudinary.com/dnkggulhp/video/upload/v1784073639/WhatsApp_Video_2026-07-14_at_8.57.50_PM_b6nvor.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover" />
         </div>
       </div>
 
@@ -511,7 +512,7 @@ const InteractiveExperience = () => {
                 <p className="text-slate-300">Produtos profissionais com dosagem automática em cada ciclo.</p>
               </div>
               <div className="bg-[#254668] p-8 rounded-2xl">
-                <h4 className="font-bold text-lg mb-4 text-red-500">Pronto em 75 minutos</h4>
+                <h4 className="font-bold text-lg mb-4 text-red-500">Pronto em 60 minutos</h4>
                 <p className="text-slate-300">Agilidade sem abrir mão da qualidade.</p>
               </div>
               <div className="bg-[#254668] p-8 rounded-2xl">
@@ -534,9 +535,13 @@ const InteractiveExperience = () => {
             </div>
           )}
           {activeTab === 'about' && (
-            <div className="max-w-3xl mx-auto text-center text-slate-300 leading-relaxed">
-              <p className="mb-6">A Seld nasceu para transformar sua rotina, trazendo tecnologia e eficiência para o cuidado com suas roupas na Praia do Francês.</p>
-              <p>Combinamos a sabedoria do cuidado artesanal com a mais alta tecnologia em lavanderia. Nossos equipamentos de ponta garantem uma limpeza profunda, enquanto o acabamento manual assegura um toque de perfeição.</p>
+            <div className="max-w-3xl mx-auto text-center text-slate-300 leading-relaxed space-y-4">
+              <p className="font-bold">SELD Express – A primeira lavanderia express de Marechal Deodoro</p>
+              <p>Desde 2023, a SELD Express tem orgulho de ser a primeira lavanderia express de Marechal Deodoro, localizada em um ponto estratégico, no trevo da Praia do Francês, ao lado do Posto Ipiranga.</p>
+              <p>Idealizada pela empresária Thaís Borges, a SELD Express nasceu após identificar a necessidade da região por um serviço de lavanderia moderno, rápido e de alta qualidade, atendendo moradores, turistas, comerciantes e empresas.</p>
+              <p>Trabalhamos com máquinas industriais de alta performance e produtos profissionais de padrão industrial, proporcionando uma lavagem eficiente, higienização de qualidade e cuidado especial com cada peça.</p>
+              <p>Ao longo desses anos, consolidamos nossa marca pela confiança, praticidade e excelência no atendimento. Temos a satisfação de sermos a lavanderia pioneira da cidade e queremos que todas as pessoas que precisam de um serviço de lavanderia saibam que podem contar com quem abriu esse mercado em Marechal Deodoro e continua investindo para oferecer a melhor experiência aos seus clientes.</p>
+              <p className="font-bold">SELD Express – A pioneira em lavanderia express de Marechal Deodoro. Tecnologia, qualidade e confiança para cuidar das suas roupas.</p>
             </div>
           )}
         </div>
@@ -600,10 +605,10 @@ const plans = [
   ];
 
   return (
-    <section id="plans" className="py-24 bg-[#1C3550]">
+    <section id="values" className="py-24 bg-[#1C3550]">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-brand text-white mb-4">Nossos Serviços</h2>
+          <h2 className="text-5xl md:text-6xl font-brand text-white mb-4">Nossos Valores</h2>
           <p className="text-slate-200 text-xl">Preço justo e qualidade garantida.</p>
         </div>
 
@@ -679,36 +684,20 @@ const ScheduleCollection = () => {
 
 const AboutUs = () => {
   return (
-    <section id="about" className="bg-[#1C3550] text-white">
-      <div className="py-24 px-4 text-center">
-        <h2 className="text-4xl md:text-6xl font-brand text-white mb-6">Seld: Compromisso com Economia e Qualidade</h2>
-        <p className="text-slate-200 text-xl">A Seld nasceu para transformar sua rotina, trazendo tecnologia e eficiência para o cuidado com suas roupas na Praia do Francês.</p>
-      </div>
-
-      <div className="py-24 px-4 text-center bg-[#254668]">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-5xl font-brand text-white mb-8">Nossa Essência</h3>
-          <p className="text-slate-200 text-lg md:text-xl leading-relaxed">
-            Nascemos da paixão por tecidos finos e do desejo de oferecer um cuidado que vai além da simples limpeza. Cada peça é tratada como única, com a delicadeza que ela merece.
-          </p>
-        </div>
-      </div>
-
-      <div className="py-24 px-4 text-center bg-[#1C3550]">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-5xl font-brand text-white mb-8">Compromisso com a Natureza</h3>
-          <p className="text-slate-200 text-lg md:text-xl leading-relaxed">
-            Utilizamos produtos biodegradáveis e processos de baixo impacto ambiental. A água que usamos passa por um rigoroso processo de filtragem e é reutilizada, porque acreditamos que cuidar das suas roupas é também cuidar do nosso planeta.
-          </p>
-        </div>
-      </div>
-
-      <div className="py-24 px-4 text-center bg-[#254668]">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-5xl font-brand text-white mb-8">Tecnologia e Tradição</h3>
-          <p className="text-slate-200 text-lg md:text-xl leading-relaxed">
-            Combinamos a sabedoria do cuidado artesanal com a mais alta tecnologia em lavanderia. Nossos equipamentos de ponta garantem uma limpeza profunda, enquanto o acabamento manual assegura um toque de perfeição.
-          </p>
+    <section id="about" className="bg-[#1C3550] text-white py-24 px-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-4xl md:text-6xl font-brand text-white mb-12 text-center">Sobre Nós</h2>
+        
+        <div className="space-y-6 text-slate-200 text-lg md:text-xl leading-relaxed text-center">
+          <p>Desde 2023, a SELD Express tem orgulho de ser a primeira lavanderia express de Marechal Deodoro, localizada em um ponto estratégico, no trevo da Praia do Francês, ao lado do Posto Ipiranga.</p>
+          
+          <p>Idealizada pela empresária Thaís Borges, a SELD Express nasceu após identificar a necessidade da região por um serviço de lavanderia moderno, rápido e de alta qualidade, atendendo moradores, turistas, comerciantes e empresas.</p>
+          
+          <p>Trabalhamos com máquinas industriais de alta performance e produtos profissionais de padrão industrial, proporcionando uma lavagem eficiente, higienização de qualidade e cuidado especial com cada peça.</p>
+          
+          <p>Ao longo desses anos, consolidamos nossa marca pela confiança, praticidade e excelência no atendimento. Temos a satisfação de sermos a lavanderia pioneira da cidade e queremos que todas as pessoas que precisam de um serviço de lavanderia saibam que podem contar com quem abriu esse mercado em Marechal Deodoro e continua investindo para oferecer a melhor experiência aos seus clientes.</p>
+          
+          <p className="font-bold pt-6">SELD Express – A pioneira em lavanderia express de Marechal Deodoro. Tecnologia, qualidade e confiança para cuidar das suas roupas.</p>
         </div>
       </div>
     </section>
@@ -1008,7 +997,7 @@ const Testimonials = () => {
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
-    <section className="py-24 bg-[#1C3550]">
+    <section id="faq" className="py-24 bg-[#1C3550]">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#254668] text-white mb-4">

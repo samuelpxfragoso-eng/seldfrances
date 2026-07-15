@@ -4,9 +4,7 @@ import { Shield, Clock, ThumbsUp, Sparkles, Droplets, Wind, Shirt } from 'lucide
 export const NAV_ITEMS = [
   { href: '#home', label: 'Início' },
   { href: '#structure', label: 'Estrutura' },
-  { href: '#premium', label: 'Premium' },
-  { href: '#plans', label: 'Planos' },
-  { href: '#about', label: 'Sobre' },
+  { href: '#values', label: 'Valores' },
   { href: '#faq', label: 'FAQ' },
 ];
 
@@ -19,7 +17,7 @@ export const DIFFERENTIALS = [
   {
     icon: <Clock size={32} />,
     title: 'Agilidade',
-    description: 'Roupas limpas e secas em até 75 minutos com nossos equipamentos de ponta.',
+    description: 'Roupas limpas e secas em até 60 minutos com nossos equipamentos de ponta.',
   },
   {
     icon: <ThumbsUp size={32} />,
@@ -145,7 +143,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: 'Quanto tempo demora para lavar e secar?',
-    answer: 'O ciclo de lavagem dura cerca de 35 minutos e o de secagem 45 minutos. Em pouco mais de 1 hora suas roupas estão prontas.',
+    answer: 'O ciclo de lavagem dura cerca de 30 minutos e o de secagem 30 minutos. Em 60 minutos suas roupas estão prontas.',
   },
   {
     question: 'Vocês lavam edredons e cobertores?',
